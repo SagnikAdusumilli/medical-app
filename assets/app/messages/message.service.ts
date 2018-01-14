@@ -10,8 +10,8 @@ import { ErrorService } from '../errors/error.service';
 export class MessageService {
     public messageIsEdit = new EventEmitter<Message>();
     private messages: Message[] = [];
-    // private BE_URL = 'http://localhost:3000/';
-    private BE_URL = 'https://message-app-2.herokuapp.com/';
+    private BE_URL = 'http://localhost:3000/';
+    // private BE_URL = 'https://message-app-2.herokuapp.com/';
 
     constructor(private http: Http, private errorService: ErrorService) {
     }
