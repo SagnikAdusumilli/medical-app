@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
+import {AgmCoreModule} from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { AuthenticationComponent } from './auth/authentication.component';
@@ -11,6 +12,7 @@ import { ErrorComponent } from './errors/error.component';
 import { ErrorService } from './errors/error.service';
 import { MessageModule } from './messages/message.module';
 import { HomeComponent } from './home/home.component';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
     declarations: [
@@ -18,9 +20,13 @@ import { HomeComponent } from './home/home.component';
         AuthenticationComponent,
         HeaderComponent,
         ErrorComponent,
-        HomeComponent
+        HomeComponent,
+        MapComponent
     ],
     imports: [
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyBhyNvQBvy-ulIDXzZrRqKFimzSLDPZYT8'
+        }),
         BrowserModule,
         routing,
         HttpModule,
