@@ -1,9 +1,28 @@
-<agm-map 
-[latitude]="defaultLatitude" 
-[longitude]="defaultLongitude"
-(mapClick)="onChoseLocation($event)">
-    <agm-marker [latitude]="defaultLatitude" [longitude]="defaultLongitude"></agm-marker>
-    <agm-marker  *ngIf="locationChosen" 
-    [latitude]="latitude" 
-    [longitude]="longitude"></agm-marker>
-</agm-map>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="map">
+                <agm-map [latitude]="mapCenter[0]" [longitude]="mapCenter[1]" [zoom]="zoom" (mapClick)="onChoseLocation($event)">
+                    <agm-marker 
+                    *ngFor ="let m of clinicMarkers"
+                    [latitude]="m.lat"
+                    [longitude]="m.lng">
+                            <agm-info-window>
+                                    <strong>{{m.name}}</strong>
+                                </agm-info-window>
+                    </agm-marker>
+
+                    <agm-marker *ngIf="locationChosen" [latitude]="latitude" [longitude]="longitude">
+                        <agm-info-window>
+                                <strong> {{latitude}}, {{longitude}}</strong>
+                        </agm-info-window>
+                    </agm-marker>
+                </agm-map>
+            </div>
+            <!-- <div class="form-group">
+                <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control"
+                    #search [formControl]="searchControl">
+            </div> -->
+        </div>
+    </div>
+</div>
