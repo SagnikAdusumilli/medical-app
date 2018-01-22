@@ -3,17 +3,18 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html'
-    // template: `
-    //     <header class="row">
-    //         <nav class="col-md-8 col-md-offset-2">
-    //             <ul class="nav nav-pills">
-    //                 <li routerLinkActive="active"><a [routerLink]="['/messages']">Messenger</a></li>
-    //                 <li routerLinkActive="active"><a [routerLink]="['/auth']">Authentication</a></li>
-    //             </ul>
-    //         </nav>
-    //     </header>
-    // `
 })
 export class HeaderComponent {
+    private adminId = '5a6511308518e320347ad539';
+    public isAdminLoggedIn() {
+        return localStorage.getItem('userId') === this.adminId;
+    }
 
+    public isLoggedIn() {
+        return localStorage.getItem('token') !== null;
+    }
+
+    public onLogout() {
+        localStorage.clear();
+    }
 }

@@ -13,6 +13,7 @@ import { ErrorService } from './errors/error.service';
 import { MessageModule } from './messages/message.module';
 import { HomeComponent } from './home/home.component';
 import { MapComponent } from './map/map.component';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
     declarations: [
@@ -30,7 +31,8 @@ import { MapComponent } from './map/map.component';
         BrowserModule,
         routing,
         HttpModule,
-        MessageModule
+        MessageModule,
+        AuthModule
     ],
     providers: [AuthService, ErrorService],
     bootstrap: [AppComponent]
